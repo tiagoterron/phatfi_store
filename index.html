@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Haven</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="logo">
+                <h1>Candy Haven</h1>
+                <span class="tagline">Sweet treats for everyone</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon-container">
+                <button id="cartToggleBtn" class="cart-button" aria-label="View shopping cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Delicious Treats</h2>
+                <p>Discover our handcrafted selection of premium candies</p>
+            </div>
+        </section>
+
+        <main>
+            <div class="products-header">
+                <h2>Our Products</h2>
+                <div class="filter-sort">
+                    <select id="productSort" class="sort-select">
+                        <option value="default">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name</option>
+                    </select>
+                </div>
+            </div>
+            <div id="productList" class="product-grid">
+                <!-- Products will be loaded here dynamically -->
+                <div class="loading-products">
+                    <div class="loader"></div>
+                    <p>Loading delicious treats...</p>
+                </div>
+            </div>
+        </main>
+
+        <aside id="shoppingCart" class="shopping-cart-sidebar">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-bag"></i> Your Cart</h3>
+                <button id="closeCartBtn" class="close-cart-btn" aria-label="Close cart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="cartItems" class="cart-items-list">
+                <!-- Cart items will be loaded here dynamically -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <span>$<span id="cartTotal">0.00</span></span>
+                </div>
+                <div class="cart-shipping">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="cart-total-amount">
+                    <span>Total</span>
+                    <span>$<span id="finalTotal">0.00</span></span>
+                </div>
+                <button id="checkoutBtn" class="checkout-button">
+                    <span>Checkout</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div id="loadingIndicator" class="loading-indicator">
+                    <div class="loader"></div>
+                    <span>Processing your order...</span>
+                </div>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+        </aside>
+        <div id="overlay" class="overlay"></div>
+        
+        <!-- Notification Toast -->
+        <div id="notificationToast" class="notification-toast">
+            <div class="notification-content">
+                <i class="fas fa-check-circle notification-icon"></i>
+                <span id="notificationMessage"></span>
+            </div>
+            <button class="notification-close" aria-label="Close notification">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Candy Haven</h4>
+                <p>Bringing joy and sweetness to your life since 2023</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Candy Haven. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

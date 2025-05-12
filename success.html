@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Candy Haven</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ffa5a5;
+            --accent-color: #4ecdc4;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #ffffff;
+            --success-green: #4CAF50;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #777;
+            display: block;
+            margin-top: -5px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav ul li {
+            margin-left: 30px;
+        }
+        
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .main-nav ul li a:hover, 
+        .main-nav ul li a.active {
+            color: var(--primary-color);
+        }
+        
+        .success-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: var(--success-green);
+            margin-bottom: 20px;
+        }
+        
+        .success-heading {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .success-message {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .order-details {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .order-details h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 5px 0;
+        }
+        
+        .detail-label {
+            font-weight: 500;
+        }
+        
+        .detail-value {
+            color: #666;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .main-footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .main-nav {
+                margin-top: 20px;
+            }
+            
+            .main-nav ul {
+                justify-content: center;
+            }
+            
+            .main-nav ul li {
+                margin: 0 10px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="logo">
+                <h1>Candy Haven</h1>
+                <span class="tagline">Sweet treats for everyone</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="success-section">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2 class="success-heading">Thank You for Your Order!</h2>
+            <p class="success-message">
+                Your order has been successfully placed and is being processed. 
+                We've sent a confirmation email with all the details to your registered email address.
+            </p>
+            
+            <div class="order-details">
+                <h3>Order Details</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Order Number:</span>
+                    <span class="detail-value" id="orderNumber">#CH10385926</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Order Date:</span>
+                    <span class="detail-value" id="orderDate">May 12, 2025</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Estimated Delivery:</span>
+                    <span class="detail-value">3-5 Business Days</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Shipping Method:</span>
+                    <span class="detail-value">Standard Shipping</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total Amount:</span>
+                    <span class="detail-value" id="orderTotal">$32.50</span>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-candy-cane"></i>
+                    Continue Shopping
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i>
+                    View Order Status
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Candy Haven</h4>
+                    <p>Bringing joy and sweetness to your life since 2023</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Candy Haven. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get current date for the order date
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('orderDate').textContent = today.toLocaleDateString('en-US', options);
+        
+        // Generate a random order number (for demo purposes)
+        function generateOrderNumber() {
+            const randomNum = Math.floor(Math.random() * 10000000);
+            return `#CH${randomNum.toString().padStart(8, '0')}`;
+        }
+        document.getElementById('orderNumber').textContent = generateOrderNumber();
+        
+        // Check if there's stored order info in localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const orderTotal = localStorage.getItem('orderTotal');
+            if (orderTotal) {
+                document.getElementById('orderTotal').textContent = `$${parseFloat(orderTotal).toFixed(2)}`;
+                // Clear the cart data from localStorage
+                localStorage.removeItem('cartItems');
+                localStorage.removeItem('orderTotal');
+            }
+        });
+    </script>
+</body>
+</html>
