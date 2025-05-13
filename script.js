@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const productListElement = document.getElementById('productList');
@@ -283,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
             closeCart();
 
     
-            const simulatedPhatfiSecretKey = process.env.api_key; // Placeholder
+            const simulatedPhatfiSecretKey = "API_KEY"; // ADD HERE YOUR API KEY
     
             const requestBody = {
                 items: orderItems,
