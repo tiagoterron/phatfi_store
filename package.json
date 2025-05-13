@@ -4,9 +4,13 @@
   "description": "",
   "main": "script.js",
   "scripts": {
+    "publish": "rsync -rav -e 'ssh' /Users/test/Desktop/store/* terron@62.171.179.214:/var/www/store.phatfi.com"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
 }
